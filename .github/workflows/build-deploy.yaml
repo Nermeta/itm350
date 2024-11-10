@@ -5,7 +5,7 @@ on:
     types:
       - closed
 env:
-  REPO_NAME: qoi123/itm350-qoi123-bb
+  REPO_NAME: qoi123/cit262-qoi123-bb
 
 jobs:
   if_merged:
