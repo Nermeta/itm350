@@ -27,13 +27,19 @@ variable "lab_role" {
 }
 
 variable "region" {
-  type = string
+  type        = string
+  description = "The ECS region we are operating out of"
+  default     = "us-east-1"
 }
 
 variable "vpc_cidr" {
-  type = string
+  type        = string
+  description = "The CIDR notation for our vpc"
+  default     = "10.0.0.0/16"
 }
 
 variable "vpc_prefix" {
-  type = string
+  type        = string
+  description = "Identifier Prefix for the VPC"
+  default     = "Yet_Another_VPC"
 }
