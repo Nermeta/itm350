@@ -18,7 +18,7 @@ variable "container_image" {
 variable "container_port" {
   type = number
    description = "Port that the container will listen on"
-   default     = 80
+   default     = 8080
 }
 
 variable "instance_name_prefix" {

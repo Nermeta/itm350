@@ -82,18 +82,23 @@ resource "aws_nat_gateway" "nat_gw" {
 
 resource "aws_route_table" "route_table" {
   vpc_id = aws_vpc.ecs-vpc.id
-  route = {
+
+  route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.Yet_Another_Internet_Gateway.id
+    gateway_id = aws_internet_gateway.internet_gateway.id
   }
 }
+
 resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.ecs-vpc.id
-  route = {
+
+  route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.Yet_Another_Internet_Gateway.id
+    gateway_id = aws_internet_gateway.internet_gateway.id
   }
 }
+
+
 
 resource "aws_route_table_association" "subnet_route" {
   subnet_id      = aws_subnet.subnet-pub1.id
@@ -174,7 +179,7 @@ resource "aws_security_group" "ecs-cluster-sg" {
 
 resource "aws_key_pair" "ecs-node-kp" {
   key_name   = "ecs-node-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = file("C:/Users/Wynter/Downloads/docer-host.pem")
 }
 
 resource "aws_launch_template" "ecs_lt" {
